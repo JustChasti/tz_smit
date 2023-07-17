@@ -1,0 +1,7 @@
+fastapi
+python-multipart
+aiochan
+tortoise-orm[aiosqlite]
+loguru
+uvicorn
+requests
