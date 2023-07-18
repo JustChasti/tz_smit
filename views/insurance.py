@@ -2,6 +2,7 @@ import json
 from loguru import logger
 from fastapi import APIRouter, UploadFile
 from fastapi.responses import JSONResponse
+from modules.source import update_rate
 
 insurance_router = APIRouter()
 
@@ -10,5 +11,5 @@ insurance_router = APIRouter()
 async def set_rate(data: UploadFile):
     content = await data.read()
     content = json.loads(content.decode("utf-8"))
-    logger.info(content)
-    return content
+    response = await update_rate(content)
+    return response

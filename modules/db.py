@@ -16,10 +16,6 @@ class Record(Model):
     date = fields.DateField()
 
 
-async def update_rate():
-    pass
-
-
 async def init():
     await Tortoise.init(
         db_url='sqlite://db.sqlite3',
@@ -31,6 +27,7 @@ async def init():
 while True:
     try:
         run_async(init())
+        break
     except Exception as e:
         logger.exception(e)
         time.sleep(5)
