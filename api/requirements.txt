@@ -2,6 +2,7 @@ fastapi
 python-multipart
 aiochan
 tortoise-orm[aiosqlite]
+tortoise-orm[asyncpg]
 loguru
 uvicorn
 requests

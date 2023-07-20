@@ -2,14 +2,23 @@ version: '3'
 
 services:
 
-  tz_smit:
+  api:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: tz_smit
-    container_name: tz_smit
+      dockerfile: api/Dockerfile
+    image: api
+    container_name: api
     restart: always
     tty: True
-    working_dir: /
+    working_dir: /api
     ports:
       - 8000:8000
+
+  postgres:
+    image: postgres:15.3
+    environment:
+      POSTGRES_DB: "smitdb"
+      POSTGRES_USER: "gray"
+      POSTGRES_PASSWORD: "qm7hFSIW"
+    ports:
+      - "5432:5432"

@@ -18,7 +18,7 @@ class Record(Model):
 
 async def init():
     await Tortoise.init(
-        db_url='sqlite://db.sqlite3',
+        db_url='asyncpg://gray:qm7hFSIW@postgres:5432/smitdb',
         modules={'models': ['modules.db']}
     )
     await Tortoise.generate_schemas()
