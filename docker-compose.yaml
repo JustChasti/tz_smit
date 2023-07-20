@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  tz_smit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tz_smit
+    container_name: tz_smit
+    restart: always
+    tty: True
+    working_dir: /
+    ports:
+      - 8000:8000
