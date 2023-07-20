@@ -3,6 +3,7 @@ from loguru import logger
 from tortoise import Tortoise, run_async
 from tortoise.models import Model
 from tortoise import fields
+from config import db_port, db_host, db_name, db_password, db_user
 
 
 class Cargo(Model):
@@ -18,7 +19,7 @@ class Record(Model):
 
 async def init():
     await Tortoise.init(
-        db_url='asyncpg://gray:qm7hFSIW@postgres:5432/smitdb',
+        db_url=f'asyncpg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}',
         modules={'models': ['modules.db']}
     )
     await Tortoise.generate_schemas()
